@@ -43,7 +43,8 @@ public class Hello extends CordovaPlugin {
 			// add intent filter for capturing result
 			IntentFilter filter = new IntentFilter();  
 			filter.addAction(ACTION_FEEDBACK); 
-			scanningCallBackContext.registerReceiver(mCodeScanReceiver, filter); 
+			Context ctx = (Context) this.ctx;
+			ctx.registerReceiver(mCodeScanReceiver, filter); 
             return true;
         } else {
             return false;

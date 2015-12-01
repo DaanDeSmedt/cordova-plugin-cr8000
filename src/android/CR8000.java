@@ -1,4 +1,4 @@
-package com.example.plugin;
+package com.sdp.barcodescanner.cr8000;
 
 import org.apache.cordova.*;
 import org.json.JSONArray;

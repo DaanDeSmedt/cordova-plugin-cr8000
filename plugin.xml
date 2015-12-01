@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<plugin xmlns="http://www.phonegap.com/ns/plugins/1.0"
+        id="com.sdp.barcodescanner.cr8000"
+        version="0.7.0">
+		
+	<engines>
+		<engine name="cordova" version=">=3.0.0" />
+	</engines>
+	
+	<name>CR8000</name>
+	<description>Code Reader 8000 (CR8000) Scanner plugin for Cordova/PhoneGap</description>
+	<author>Daan De Smedt | SDP Belgium</author>
+	<keywords>code, reader, 8000, CR8000</keywords>
+	<license>MIT</license>
+
+	<asset src="www/cr8000.js" target="js/cr8000.js"/>
+
+	<js-module src="www/cr8000.js" name="cr8000">
+		<clobbers target="cr8000" />
+	</js-module>
+
+	<platform name="android">
+
+		<config-file target="res/xml/config.xml" parent="/*">
+		  <feature name="CR8000">
+			<param name="android-package" value="com.sdp.barcodescanner.cr8000"/>
+		  </feature>
+		</config-file>
+
+		<source-file src="src/android/CR8000.java" target-dir="src/com/sdp/plugin/"/>
+	</platform>
+
+</plugin>

@@ -43,7 +43,7 @@ public class Hello extends CordovaPlugin {
 			// add intent filter for capturing result
 			IntentFilter filter = new IntentFilter();  
 			filter.addAction(ACTION_FEEDBACK); 
-			registerReceiver(mCodeScanReceiver, filter); 
+			scanningCallBackContext.registerReceiver(mCodeScanReceiver, filter); 
             return true;
         } else {
             return false;
@@ -54,6 +54,7 @@ public class Hello extends CordovaPlugin {
     	
     	@Override
     	public void onReceive(Context context, Intent intent){
+			scanningCallBackContext.success(intent.getAction());
             if (intent.getAction().equals(ACTION_FEEDBACK))
             { 
 				// succes callback

@@ -23,7 +23,6 @@ public class Hello extends CordovaPlugin {
 	
 	private CallbackContext scanningCallBackContext;
 	
-	
     @Override
     public boolean execute(String action, JSONArray data, CallbackContext callbackContext) throws JSONException {
 
@@ -44,6 +43,7 @@ public class Hello extends CordovaPlugin {
 			IntentFilter filter = new IntentFilter();  
 			filter.addAction(ACTION_FEEDBACK); 
 			this.cordova.getActivity().registerReceiver(mCodeScanReceiver, filter); 
+			
             return true;
         } else {
             return false;
@@ -54,7 +54,6 @@ public class Hello extends CordovaPlugin {
     	
     	@Override
     	public void onReceive(Context context, Intent intent){
-			scanningCallBackContext.success(intent.getAction());
             if (intent.getAction().equals(ACTION_FEEDBACK))
             { 
 				// succes callback

@@ -1,14 +1,16 @@
 Barcodescanner PhoneGap native plugin for the Code Reader 8000 (CR8000) Scanner
 
-### Android
+### Useage
 
-- The minimum supported API Level is 11. Make sure that `minSdkVersion` is larger or equal to 11 in `AndroidManifest.xml`.
+### Platform support
+
+- Android : The minimum supported API Level is 11. Make sure that `minSdkVersion` is larger or equal to 11 in `AndroidManifest.xml`.
 
 ## License
 
 The MIT License (MIT)
 
-Copyright (c) 2013 Verso Solutions LLC
+Copyright (c) 2015
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

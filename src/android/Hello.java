@@ -30,7 +30,7 @@ public class Hello extends CordovaPlugin {
         if (action.equals("scan")) {
 			// send native device intent to trigger scan start action
 			Intent intent = new Intent(ACTION_BCR_TRIGGER);
-			intent.putExtra(ACTION_BCR_TRIGGER_KEYCODE, 118);
+			// intent.putExtra(ACTION_BCR_TRIGGER_KEYCODE, 118);
 			this.cordova.getActivity().getApplicationContext().sendBroadcast(intent);
 			
 			// dummy return
@@ -44,13 +44,9 @@ public class Hello extends CordovaPlugin {
 			IntentFilter filter = new IntentFilter();  
 			filter.addAction(ACTION_FEEDBACK); 
 			registerReceiver(mCodeScanReceiver, filter); 
-			
             return true;
-
         } else {
-            
             return false;
-
         }
     }
 	
@@ -61,19 +57,17 @@ public class Hello extends CordovaPlugin {
             if (intent.getAction().equals(ACTION_FEEDBACK))
             { 
 				// succes callback
-				if(scanningCallBackContext != null) {
-					String  szComData = intent.getStringExtra(Intent.EXTRA_TEXT);
-					scanningCallBackContext.success(message);
-				}
+				String szComData = intent.getStringExtra(Intent.EXTRA_TEXT);
+				scanningCallBackContext.success(szComData);
             }
     	}
     };
     
-    @Override
+    /*@Override
 	public void onDestroy() 
 	{
 	    unregisterReceiver(mCodeScanReceiver);
 	    super.onDestroy();
-	}
+	}*/
 	
 }

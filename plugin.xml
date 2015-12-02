@@ -1,29 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <plugin xmlns="http://www.phonegap.com/ns/plugins/1.0"
-        id="com.example.hello"
-        version="0.7.0">
+        id="com.sdp.plugins.bcr"
+        version="0.9.0">
 
-  <name>Hello</name>
+  <name>Code Reader™ CR8000 Scan</name>
 
   <engines>
     <engine name="cordova" version=">=3.4.0"/>
   </engines>
 
-  <asset src="www/hello.js" target="js/hello.js"/>
+  <asset src="www/cr8000.js" target="js/cr8000.js"/>
 
-  <js-module src="www/hello.js" name="hello">
-    <clobbers target="hello" />
+  <js-module src="www/cr8000.js" name="cr8000">
+    <clobbers target="cr8000" />
   </js-module>
 
   <platform name="android">
 
     <config-file target="res/xml/config.xml" parent="/*">
-      <feature name="Hello">
-        <param name="android-package" value="com.example.plugin.Hello"/>
+      <feature name="CR8000">
+        <param name="android-package" value="com.sdp.plugins.bcr.CR8000"/>
       </feature>
     </config-file>
 
-    <source-file src="src/android/Hello.java" target-dir="src/com/example/plugin/"/>
+    <source-file src="src/android/CR8000.java" target-dir="src/com/sdp/plugins/bcr/"/>
   </platform>
 
 </plugin>

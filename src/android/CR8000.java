@@ -1,3 +1,8 @@
+/*
+* Daan De Smedt | SDP
+* Code Reader™ CR8000 Scanner Phonegap plugin integration
+*/
+
 package com.sdp.plugins.bcr;
 
 import org.json.JSONArray;

@@ -34,7 +34,7 @@ public class CR8000 extends CordovaPlugin {
         if (action.equals("scan")) {
 			// send native device intent to trigger scan start action
 			Intent intent = new Intent(ACTION_BCR_TRIGGER);
-			// intent.putExtra(ACTION_BCR_TRIGGER_KEYCODE, 118);
+			intent.putExtra(ACTION_BCR_TRIGGER_KEYCODE, 118);
 			this.cordova.getActivity().getApplicationContext().sendBroadcast(intent);
 			// set callbackcontext
 			scanningCallBackContext = callbackContext;

@@ -30,23 +30,14 @@ public class CR8000 extends CordovaPlugin {
 	
     @Override
     public boolean execute(String action, JSONArray data, CallbackContext callbackContext) throws JSONException {
-		
-		webView.loadUrl("javascript:console.log('" + action + "');");
 
-		
         if (action.equals("scan")) {
-			
-			webView.loadUrl("javascript:console.log('scan');");
-			
 			// set callbackcontext
 			scanningCallBackContext = callbackContext;
 			// send native device intent to trigger scan start action
 			Intent intent = new Intent(ACTION_BCR_TRIGGER);
 			intent.putExtra(ACTION_BCR_TRIGGER_KEYCODE, 118);
 			this.cordova.getActivity().getApplicationContext().sendBroadcast(intent);
-			
-			webView.loadUrl("javascript:console.log('scan');");
-			
 			// add intent filter for capturing result
 			IntentFilter filter = new IntentFilter();  
 			filter.addAction(ACTION_FEEDBACK); 
@@ -60,12 +51,10 @@ public class CR8000 extends CordovaPlugin {
 			IntentFilter filter = new IntentFilter();  
 			filter.addAction(ACTION_FEEDBACK); 
 			this.cordova.getActivity().registerReceiver(mCodeScanReceiver, filter); 
-			// return
 			return true;
-		}
-		
-        return false;
-		
+		} else {
+            return false;
+        }
     }
 	
 	public BroadcastReceiver mCodeScanReceiver = new BroadcastReceiver() {
@@ -74,7 +63,6 @@ public class CR8000 extends CordovaPlugin {
     	public void onReceive(Context context, Intent intent){
             if (intent.getAction().equals(ACTION_FEEDBACK))
             { 
-				webView.loadUrl("javascript:console.log('onReceive event ok');");
 				String szComData = intent.getStringExtra(Intent.EXTRA_TEXT);
 				scanningCallBackContext.success(szComData);
             }

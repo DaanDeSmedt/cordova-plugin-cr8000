@@ -25,6 +25,23 @@ listen: function (successCallback, errorCallback) {
 	cordova.exec(successCallback, errorCallback, "CR8000", "listen", []);
 }
 
+/* button bind event */
+$scope.launchBarcodeScanner = function(){
+	cr8000.scan(function(barcodeResult){
+		$scope.addBarcode({value:barcodeResult});
+	}, function(){});
+};
+
+/* listen for keyinput */
+document.addEventListener('keydown', getInput, false);
+$scope.$on("$destroy", function() { document.removeEventListener('keydown', getInput); });
+function getInput(e){
+	if(e.which == $rootScope.getPropertyByName('barcodeKeyInitialize')) {
+		cr8000.listen(function(barcodeResult){
+			$scope.addBarcode({value:barcodeResult});
+		}, function(){});
+	}
+}
 
 ### Installation
 

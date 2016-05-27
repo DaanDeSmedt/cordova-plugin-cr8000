@@ -56,7 +56,7 @@ This method can be used when the device keyCode is pressed (function button).
 Using the Cordova CLI and direct Git.
 
 Adding the plugin:
-		cordova plugin add https://github.com/DaanDeSmedt/cordova-plugin-cr8000
+		```cordova plugin add https://github.com/DaanDeSmedt/cordova-plugin-cr8000```
 
 Removing the plugin:
-		cordova remove com.sdp.plugins.bcr
+		```cordova remove com.sdp.plugins.bcr```

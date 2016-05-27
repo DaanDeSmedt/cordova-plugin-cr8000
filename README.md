@@ -1,5 +1,9 @@
-Barcodescanner PhoneGap native plugin for the Code Reader 8000 (CR8000) Scanner Android integration.
-Native functions are available to listen / scan.
+Barcodescanner PhoneGap native plugin for the Code Reader™ 8000 Scan Engine (CR8000), native android 2D/3D barcode scanner.
+http://www.codecorp.com/products.php?id=75
+
+
+Interface methods for listening / scanning barcodes through the native component.
+
 
 ### Android
 
@@ -8,14 +12,15 @@ Native functions are available to listen / scan.
 - Latest version on GitHub for easy integration (install & deploy)
 
 
-### Methods
+### Native interface methods
 
-Invoke scanner to initialize.
+Invoking the scanner to initialize the scan action.
 When result is scanned, the successCallback is invoked.
 
 scan: function (successCallback, errorCallback) {
 	cordova.exec(successCallback, errorCallback, "CR8000", "scan", []);
 }
+
 
 Invoke scanner to listen for results.
 When result is scanned, the successCallback is invoked.
@@ -24,6 +29,9 @@ This method can be used when the device keyCode is pressed (function button).
 listen: function (successCallback, errorCallback) {
 	cordova.exec(successCallback, errorCallback, "CR8000", "listen", []);
 }
+
+
+### Angular interface methods (demo)
 
 /* button bind event */
 $scope.launchBarcodeScanner = function(){
@@ -42,6 +50,7 @@ function getInput(e){
 		}, function(){});
 	}
 }
+
 
 ### Installation
 

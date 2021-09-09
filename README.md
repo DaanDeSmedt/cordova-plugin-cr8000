@@ -1,5 +1,5 @@
 Barcodescanner PhoneGap native plugin for the Code Reader™ 8000 Scan Engine (CR8000), native android 2D/3D barcode scanner.
-http://www.codecorp.com/products.php?id=75
+https://codecorp.com/products/code-reader-8000
 
 
 Interface methods for listening / scanning barcodes through the native component.

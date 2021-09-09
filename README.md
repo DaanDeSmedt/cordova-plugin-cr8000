@@ -16,39 +16,39 @@ Interface methods for listening / scanning barcodes through the native component
 Invoking the scanner to initialize the scan action.
 When result is scanned, the successCallback is invoked.
 
-		scan: function (successCallback, errorCallback) {
-			cordova.exec(successCallback, errorCallback, "CR8000", "scan", []);
-		}
+	scan: function (successCallback, errorCallback) {
+		cordova.exec(successCallback, errorCallback, "CR8000", "scan", []);
+	}
 
 
 Invoke scanner to listen for results.
 When result is scanned, the successCallback is invoked.
 This method can be used when the device keyCode is pressed (function button).
 
-		listen: function (successCallback, errorCallback) {
-			cordova.exec(successCallback, errorCallback, "CR8000", "listen", []);
-		}
+	listen: function (successCallback, errorCallback) {
+		cordova.exec(successCallback, errorCallback, "CR8000", "listen", []);
+	}
 
 
 ### AngularJS interface methods (demo)
 
-		/* button bind event */
-		$scope.launchBarcodeScanner = function(){
-			cr8000.scan(function(barcodeResult){
+	/* button bind event */
+	$scope.launchBarcodeScanner = function(){
+		cr8000.scan(function(barcodeResult){
+			$scope.addBarcode({value:barcodeResult});
+		}, function(){});
+	};
+
+	/* listen for keyinput */
+	document.addEventListener('keydown', getInput, false);
+	$scope.$on("$destroy", function() { document.removeEventListener('keydown', getInput); });
+	function getInput(e){
+		if(e.which == $rootScope.getPropertyByName('barcodeKeyInitialize')) {
+			cr8000.listen(function(barcodeResult){
 				$scope.addBarcode({value:barcodeResult});
 			}, function(){});
-		};
-
-		/* listen for keyinput */
-		document.addEventListener('keydown', getInput, false);
-		$scope.$on("$destroy", function() { document.removeEventListener('keydown', getInput); });
-		function getInput(e){
-			if(e.which == $rootScope.getPropertyByName('barcodeKeyInitialize')) {
-				cr8000.listen(function(barcodeResult){
-					$scope.addBarcode({value:barcodeResult});
-				}, function(){});
-			}
 		}
+	}
 
 
 ### Phonegap include
